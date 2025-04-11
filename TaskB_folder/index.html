@@ -2,25 +2,29 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <div>
-        <div>
-            Welcome to WishCart
+    <div class="container">
+        <div class="left">
+            Welcome to <br /> WishCart
         </div>
-        <div>
-            <h1>Login</h1>
-            <p>Username</p>
-            <input />
-            <p>Password</p>
-            <input />
-            <button>Login</button>
-            <p> Don't have an account?</p>
-            <a href="signup.html">Sign Up</a>
+        <div class="right">
+            <div class="loginBox">
+                <h1>Login</h1>
+                <p>Username</p>
+                <input type="text"/>
+                <p>Password</p>
+                <input type="password"/>
+                <button>Login</button>
+                <div class="signup">
+                    Don’t have an account? <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
         </div>
     </div>
 </body>

@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Actor&family=Cambo&family=Junge&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Cambo&family=Junge&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background-color: #EEE0CB;
+    font-family: "Junge", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    font-weight: 500;
+    color: #000;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.loginBox {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    width: 600px;
+    height: 620px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginBox h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+.loginBox p {
+    font-size: 20px;
+    text-align: left;
+    width: 92%;
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.loginBox input {
+    width: 92%;
+    padding-bottom: 10px;
+    margin-bottom: 60px;
+    border: none;
+    border-bottom: 2px solid #695241;
+    font-size: 15px;
+    outline: none;
+}
+
+.loginBox button {
+    width: 30%;
+    background-color: #560107;
+    margin-top: 70px;
+    color: white;
+    padding: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
+    font-size: 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.loginBox .signup {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 15px;
+}
+
+.loginBox .signup a {
+    color: #000;
+    text-decoration: underline;
+}
+
+.signUpBox {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    width: 600px;
+    height: 690px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signUpBox h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+.signUpBox p {
+    font-size: 20px;
+    text-align: left;
+    width: 92%;
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.signUpBox input {
+    width: 92%;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-bottom: 2px solid #695241;
+    font-size: 15px;
+    outline: none;
+}
+
+.signUpBox button {
+    width: 30%;
+    background-color: #560107;
+    margin-top: 40px;
+    color: white;
+    padding: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
+    font-size: 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 30px;
+}
+
+.loginBox .signup {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 15px;
+}
+
+.signUpBox .login a {
+    color: #695241;
+    text-decoration: underline;
+}
+
+.containerSignUp {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 25px;
+    margin-right: 30px;
+}
+
+.navLinks a {
+    margin: 0 20px;
+    font-family: "Alegreya Sans", sans-serif;
+    font-size: 20px;
+    color: #695241;
+    text-decoration: none;
+}
+
+.navLinks a:hover {
+    text-decoration: underline;
+}
+
+.profileIcon {
+    color: #560107;
+    font-size: 50px !important;
+    margin-left: 30px;
+}
+
+.productGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 85px;
+    padding: 40px;
+}
+
+.productCard {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 20, 0.15);
+    text-align: center;
+}
+
+.productCard img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 1.5px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 20, 0.15);
+}
+
+.productInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.productButtons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.cartButton {
+    background-color: #695241;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 20, 0.15);
+    font-size: 11px;
+    font-family: "Junge", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.wishlistButton {
+    background-color: #560107;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 20, 0.15);
+    font-size: 11px;
+    font-family: "Junge", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.productDetailContainer {
+    background-color: white;
+    margin: 80px auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 900px;
+    height: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    
+}
+
+.closeButton {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    font-size: 25px;
+    background-color: #560107;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 35px;
+    text-align: center;
+}
+
+.productTitle {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.productContent {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.productImage {
+    width: 400px;
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.productText {
+    max-width: 400px;
+    font-size: 25px;
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+.productText p {
+    margin-bottom: 30px;
+}
+
+.cartButtonProduct {
+    background-color: #695241;
+    color: white;
+    border: none;
+    padding: 20px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "Junge", cursive;
+    font-weight: 400;
+    font-style: normal;
+    box-shadow: 0 0 10px rgba(0, 0, 20, 0.15);
+}
+
+.wishlistButtonProduct {
+    background-color: #560107;
+    color: white;
+    border: none;
+    padding: 20px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "Junge", cursive;
+    font-weight: 400;
+    font-style: normal;
+    box-shadow: 0 0 10px rgba(0, 0, 20, 0.15);
+}
+
+.specificProductButton {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 80px;
+}
+
+.accountLayout {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.accountLeft,
+.accountRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 50%;
+}
+
+.largeProfileIcon {
+    color: #560107;
+    font-size: 270px !important;
+}
+
+.productDetailContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.accountRight input {
+    width: 80%;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    border: none;
+    border-bottom: 2px solid #695241;
+    font-size: 15px;
+    outline: none;
+}
+
+.accountRight p {
+    width: 80%;
+    text-align: left;
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 17px;
+}
+
+.uploadButtonAccount {
+    background-color: #695241;
+    color: white;
+    border: none;
+    padding: 15px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "Junge", cursive;
+    font-weight: 400;
+    font-style: normal;
+    box-shadow: 0 0 10px rgba(0, 0, 20, 0.15);
+    margin-top: 15px;
+}
+
+.saveButtonAccount {
+    background-color: #560107;
+    color: white;
+    border: none;
+    padding: 15px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "Junge", cursive;
+    font-weight: 400;
+    font-style: normal;
+    box-shadow: 0 0 10px rgba(0, 0, 20, 0.15);
+    margin-top: 20px;
+}
+
+.accountTitle {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+    margin-top: 10px;
+}
+
