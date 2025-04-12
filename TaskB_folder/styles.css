@@ -447,3 +447,231 @@ body {
     margin-top: 10px;
 }
 
+.order-card {
+    background: white;
+    padding: 20px 25px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: relative;
+  }
+
+
+  .divider {
+    border-top: 2px solid #ccc;
+    margin: 15px 0;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .checkoutBtn {
+    background-color: #5c4033;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .orderDetailContainer {
+    background-color: white;
+    margin: 80px auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 900px;
+    height: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.orderTitle {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.orderHeader, .orderItemRow{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.removeBtn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+  }
+
+  .divider {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid #aaa;
+    margin-top: 300px;
+  }
+
+  .orderTotalRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .checkoutBtn {
+  background-color: #695241;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Junge', sans-serif;
+}
+
+.wishlistDetailContainer {
+    background-color: white;
+    margin: 80px auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 900px;
+    height: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.wishlistTitle {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.wishlistHeader, .wishlistItemRow{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto auto;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.addBtn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+  }
+
+  .mngListingsDetailContainer {
+    background-color: white;
+    margin: 80px auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 900px;
+    height: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.mngListingsTitle {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.mngListingsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 85px;
+    padding: 40px;
+}
+
+.mngListingsCard {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 20, 0.15);
+    text-align: center;
+}
+
+.mngListingsCard img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 1.5px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 20, 0.15);
+}
+
+.mngListingsInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.mngListingsButtons {
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+}
+
+.removeListingButton {
+    background-color: #695241;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 20, 0.15);
+    font-size: 11px;
+    font-family: "Junge", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.orderTotalRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .addListingsButton {
+    display: flex;
+    justify-content: right;
+    margin-bottom: 50px;
+  }
+
+  .addListButton {
+    background-color: #695241;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 20, 0.15);
+    font-size: 11px;
+    font-family: "Junge", cursive;
+    font-weight: 400;
+    font-style: normal;
+}

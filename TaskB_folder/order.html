@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="orderDetailContainer">
+        <button onclick="window.history.back()" class="closeButton">×</button>
+        <h1 class="orderTitle">Order</h1>
+        <div class="orderTable">
+            <div class="orderHeader">
+                <span>Item</span>
+                <span>Amount</span>
+                <span>Price</span>
+            </div>
+            <div class="orderItemRow">
+                <span>Bicycle</span>
+                <span>1</span>
+                <span>100.99</span>
+                <button class="removeBtn" aria-label="Remove Item">×</button>
+            </div>
+        </div>
+
+        <hr class="divider" />
+
+        <div class="orderTotalRow">
+            <span>Total</span>
+            <span>100.99</span>
+            <button class="checkoutBtn">Checkout</button>
+          </div>
+    </div>
+
+</body>
+
+</html>
