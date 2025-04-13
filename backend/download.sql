@@ -3,8 +3,8 @@ SELECT
     IFNULL(Profile_picture, '/N'),
     IFNULL(Username, '/N'),
     IFNULL(Password, '/N'),
-    IFNULL(User_ID, '/N'),
-    IFNULL(Profile_picture, '/N')
+    IFNULL(Balance, '/N'),
+    IFNULL(Email, '/N')
 INTO OUTFILE  './dat/dl_user.dat'
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
@@ -36,10 +36,10 @@ SELECT
     IFNULL(Order_ID, '/N'),
     IFNULL(User_ID, '/N'),
     IFNULL(isClosed, '/N') 
-INTO OUTFILE  './dat/dl_order.dat'
+INTO OUTFILE  './dat/dl_orders.dat'
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
-FROM Order;
+FROM Orders;
 
 SELECT
     IFNULL(Order_ID, '/N'),
