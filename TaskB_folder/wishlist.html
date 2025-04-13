@@ -5,9 +5,27 @@
     <meta charset="UTF-8">
     <title>Order</title>
     <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 
 <body>
+    <nav class="navbar">
+        <div class="navLinks">
+            <a href="shopping.html">Catalog</a>
+            <a href="wishlist.html">Wishlist</a>
+            <a href="manageListings.html">Manage Listings</a>
+            <a href="order.html">Order</a>
+        </div>
+        <div class="profileDropdownWrapper">
+            <span class="material-symbols-outlined profileIcon" onclick="toggleDropdown()">
+                account_circle
+            </span>
+            <div id="profileDropdown" class="dropdownMenu">
+                <a href="account.html">View Account</a>
+                <a href="index.html">Log Out</a>
+            </div>
+        </div>
+    </nav>
     <div class="wishlistDetailContainer">
         <button onclick="window.history.back()" class="closeButton">×</button>
         <h1 class="wishlistTitle">Wishlist</h1>
@@ -26,6 +44,13 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById("profileDropdown");
+            dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
+        }
+    </script>
 
 </body>
 

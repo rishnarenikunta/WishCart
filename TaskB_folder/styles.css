@@ -160,7 +160,7 @@ body {
 }
 
 .signUpBox .login a {
-    color: #695241;
+    color: black;
     text-decoration: underline;
 }
 
@@ -266,15 +266,14 @@ body {
 
 .productDetailContainer {
     background-color: white;
-    margin: 80px auto;
+    margin: 20px auto;
     padding: 30px;
     border-radius: 20px;
     width: 80%;
     max-width: 900px;
-    height: 500px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     position: relative;
-    
+
 }
 
 .closeButton {
@@ -452,39 +451,38 @@ body {
     padding: 20px 25px;
     border-radius: 10px;
     width: 300px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     position: relative;
-  }
+}
 
 
-  .divider {
+.divider {
     border-top: 2px solid #ccc;
     margin: 15px 0;
-  }
+}
 
-  .footer {
+.footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+}
 
-  .checkoutBtn {
+.checkoutBtn {
     background-color: #5c4033;
     color: white;
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-  }
+}
 
-  .orderDetailContainer {
+.orderDetailContainer {
     background-color: white;
-    margin: 80px auto;
+    margin: 20px auto;
     padding: 30px;
     border-radius: 20px;
     width: 80%;
     max-width: 900px;
-    height: 500px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     position: relative;
 }
@@ -498,7 +496,8 @@ body {
     font-style: normal;
 }
 
-.orderHeader, .orderItemRow{
+.orderHeader,
+.orderItemRow {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr auto;
     align-items: center;
@@ -512,40 +511,40 @@ body {
     font-size: 30px;
     cursor: pointer;
     color: #333;
-  }
+}
 
-  .divider {
+.divider {
     margin: 15px 0;
     border: none;
     border-top: 1px solid #aaa;
     margin-top: 300px;
-  }
+}
 
-  .orderTotalRow {
+.orderTotalRow {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-  }
+}
 
-  .checkoutBtn {
-  background-color: #695241;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: 'Junge', sans-serif;
+.checkoutBtn {
+    background-color: #695241;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Junge', sans-serif;
 }
 
 .wishlistDetailContainer {
     background-color: white;
-    margin: 80px auto;
+    margin: 20px auto;
     padding: 30px;
     border-radius: 20px;
     width: 80%;
     max-width: 900px;
-    height: 500px;
+    min-height: 500px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     position: relative;
 }
@@ -559,7 +558,8 @@ body {
     font-style: normal;
 }
 
-.wishlistHeader, .wishlistItemRow{
+.wishlistHeader,
+.wishlistItemRow {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr auto auto;
     align-items: center;
@@ -573,16 +573,15 @@ body {
     font-size: 30px;
     cursor: pointer;
     color: #333;
-  }
+}
 
-  .mngListingsDetailContainer {
+.mngListingsDetailContainer {
     background-color: white;
-    margin: 80px auto;
+    margin: 20px auto;
     padding: 30px;
     border-radius: 20px;
     width: 80%;
     max-width: 900px;
-    height: 500px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     position: relative;
 }
@@ -654,15 +653,15 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-  }
+}
 
-  .addListingsButton {
+.addListingsButton {
     display: flex;
-    justify-content: right;
-    margin-bottom: 50px;
-  }
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
 
-  .addListButton {
+.addListButton {
     background-color: #695241;
     border: none;
     padding: 10px 20px;
@@ -674,4 +673,29 @@ body {
     font-family: "Junge", cursive;
     font-weight: 400;
     font-style: normal;
+}
+
+.profileDropdownWrapper {
+    position: relative;
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.dropdownMenu a {
+    padding: 12px 16px;
+    text-decoration: none;
+    color: black;
+    font-family: "Alegreya Sans", sans-serif;
+    font-size: 16px;
 }

@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Manage Listings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
@@ -28,23 +29,23 @@
     </nav>
     <div class="mngListingsDetailContainer">
         <button onclick="window.history.back()" class="closeButton">×</button>
-        <h1 class="mngListingsTitle">Manage Listings</h1>
-        <div class="mngListingsGrid">
-            <div class="mngListingsCard">
-                <img src="bike.jpg" alt="Bicycle" />
-                <div class="mngListingsInfo">
-                    <span>Bicycle</span>
-                    <span>$100.99</span>
-                </div>
-                <div class="mngListingsButtons">
-                    <button class="removeListingButton">Remove Listing</button>
-                </div>
+        <h1 class="orderTitle">Add Listing</h1>
+        <div class="accountLayout">
+            <div class="accountLeft">
+                <span class="material-symbols-outlined largeProfileIcon">
+                    image
+                </span>
+                <button class="uploadButtonAccount">Upload Picture</button>
             </div>
-        </div>
-        <div class="addListingsButton">
-            <a href="addListing.html">
-                <button class="addListButton">Add Listings</button>
-            </a>
+            <div class="accountRight">
+                <p>Item Name</p>
+                <input type="text" />
+                <p>Description</p>
+                <input type="email" />
+                <p>Price</p>
+                <input type="password" />
+                <button class="saveButtonAccount">Add Listing</button>
+            </div>
         </div>
     </div>
     <script>
