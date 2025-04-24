@@ -1,3 +1,5 @@
+USE WishCart;
+
 -- Ensure user table exists, prevents future errors
 CREATE TABLE IF NOT EXISTS User (
     User_ID INT NOT NULL AUTO_INCREMENT,
@@ -7,7 +9,7 @@ CREATE TABLE IF NOT EXISTS User (
     Balance FLOAT NOT NULL DEFAULT 0.0,
     Email VARCHAR(100) NOT NULL UNIQUE,
     CONSTRAINT userPK PRIMARY KEY (User_ID)
-);
+); 
 
 -- Staging table for User to paste our data into
 CREATE TEMPORARY TABLE Stage_User LIKE User;

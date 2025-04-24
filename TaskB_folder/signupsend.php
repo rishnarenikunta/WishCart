@@ -3,7 +3,7 @@
     $password = $_POST['password'];
     $email = $_POST['email'];
 
-    $conn = new mysqli('localhost', 'root', '', 'taskb');
+    $conn = new mysqli('localhost', 'root', '', 'WishCart');
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);

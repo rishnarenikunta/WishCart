@@ -1,3 +1,5 @@
+USE WishCart;
+
 SELECT
     IFNULL(User_ID, '/N'),
     IFNULL(Profile_picture, '/N'),

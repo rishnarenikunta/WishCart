@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
-
-
 
 <body>
     <div class="containerSignUp">
@@ -23,12 +20,15 @@
                 <input type="password" name="password" id="password" placeholder="Password" required>
                 <p>Reconfirm Password</p>
                 <input type="password" name="reconfirm-password" id="reconfirm-password" placeholder="Reconfirm Password" required> 
-                <button type="submit" onclick=signup()>Sign Up</button>
+                <button type="submit" onclick=signup() href="/account.html">Sign Up</button>
+
             </form>
 
             <script>
                 function signup() {
-        
+    
+                    event.preventDefault();
+
                     var username = document.getElementById("username").value;
                     var password = document.getElementById("password").value;
                     var reconfirmPassword = document.getElementById("reconfirm-password").value;
@@ -37,8 +37,7 @@
                     var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
                     var emailPattern = /^[A-Za-z0-9._]+ @ + [utdallas.edu|yahoo.com|gmail.com|hotmain.com] $/;
                     if (!usernamePattern.test(username)) {
-                        alert("First name  can only contain letters.");
-                        
+                        alert("First name  can only contain letters."); 
                     }
                     else if (!passwordPattern.test(password)) {
                         alert("Password must be at least 8 characters long and contain at least one letter and one number.");
@@ -47,7 +46,7 @@
                         alert("Passwords do not match.");
                     }
                     else if (!emailPattern.test(email)) {
-                        alert("Email must be a valid UTD email address.");
+                        alert("Email must be a valid email address.");
                     }
         
                     else if (username === "" || password === "" || reconfirmPassword === "" || email === "") {
@@ -55,7 +54,7 @@
                     }
                     else {
                         alert("Submitted successfully!");
-                        return;
+                         document.querySelector("form").submit();
                     }
                 }
             </script>   

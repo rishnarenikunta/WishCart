@@ -1,3 +1,7 @@
+
+Create DATABASE IF NOT EXISTS WishCart;
+USE WishCart;
+
 CREATE TABLE IF NOT EXISTS User (
     User_ID INT NOT NULL AUTO_INCREMENT,
     Profile_picture VARCHAR(255) NOT NULL,

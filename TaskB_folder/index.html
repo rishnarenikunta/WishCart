@@ -15,15 +15,17 @@
         </div>
         <div class="right">
             <div class="loginBox">
-                <h1>Login</h1>
-                <p>Username</p>
-                <input type="text" />
-                <p>Password</p>
-                <input type="password" />
-                <button>Login</button>
-                <div class="signup">
-                    Don’t have an account? <a href="signup.html">Sign Up</a>
-                </div>
+                <form action ="getlogin.php" method ="GET">
+                    <h1>Login</h1>
+                    <p>Username</p>
+                    <input type="text" placeholder="username"/>
+                    <p>Password</p>
+                    <input type="password" placeholder="password"/>
+                    <button>Login</button>
+                    <div class="signup">
+                        Don’t have an account? <a href="/signup.html">Sign Up</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
