@@ -35,7 +35,7 @@
                     var email = document.getElementById("email").value;
                     var usernamePattern = /^[a-zA-Z]+$/;
                     var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-                    var emailPattern = /^[A-Za-z0-9._]+ @ + [utdallas.edu|yahoo.com|gmail.com|hotmain.com] $/;
+                    var emailPattern = /^[A-Za-z0-9._]+@[A-Za-z]+\.[A-Za-z]{2,}$/;
                     if (!usernamePattern.test(username)) {
                         alert("First name  can only contain letters."); 
                     }

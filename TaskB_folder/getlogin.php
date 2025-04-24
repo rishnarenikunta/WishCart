@@ -1,10 +1,9 @@
 <?php
-// filepath: c:\Users\HivaH\WishCart\TaskB_folder\login.php
+
 
 // Start session
 session_start();
 
-// Database connection (update with your database credentials)
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -28,7 +27,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
-    // Login successful
+   
     $_SESSION['username'] = $user;
     header("Location: account.php");
     exit();
