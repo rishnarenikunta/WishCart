@@ -37,7 +37,10 @@
                     <span>$100.99</span>
                 </div>
                 <div class="mngListingsButtons">
-                    <button class="removeListingButton">Remove Listing</button>
+                    <form action="removeListing.php" method="POST">
+                        <input type="hidden" name="listing_id" value="1" />
+                        <button type="submit" class="removeListingButton">Remove Listing</button>
+                    </form>
                 </div>
             </div>
         </div>
