@@ -30,23 +30,27 @@
     <div class="mngListingsDetailContainer">
         <button onclick="window.history.back()" class="closeButton">×</button>
         <h1 class="orderTitle">Add Listing</h1>
-        <div class="accountLayout">
-            <div class="accountLeft">
-                <span class="material-symbols-outlined largeProfileIcon">
-                    image
-                </span>
-                <button class="uploadButtonAccount">Upload Picture</button>
+
+        <form action="addListing.php" method="POST" enctype="multipart/form-data">
+            <div class="accountLayout">
+                <div class="accountLeft">
+                    <span class="material-symbols-outlined largeProfileIcon">
+                        image
+                    </span>
+                    <input type="file" name="product_picture" accept="image/*" class="uploadButtonAccount" />
+                </div>
+                <div class="accountRight">
+                    <p>Item Name</p>
+                    <input type="text" name="listing_name" required />
+                    <p>Description</p>
+                    <input type="text" name="listing_description" required />
+                    <p>Price</p>
+                    <input type="text" step="0.01" name="price" required />
+                    <input type="hidden" name="user_id" value="1" />
+                    <button type="submit" class="saveButtonAccount">Add Listing</button>
+                </div>
             </div>
-            <div class="accountRight">
-                <p>Item Name</p>
-                <input type="text" />
-                <p>Description</p>
-                <input type="email" />
-                <p>Price</p>
-                <input type="password" />
-                <button class="saveButtonAccount">Add Listing</button>
-            </div>
-        </div>
+        </form>
     </div>
     <script>
         function toggleDropdown() {
