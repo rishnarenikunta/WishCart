@@ -30,7 +30,8 @@
     $stmt->bind_param("idsss", $userId, $price, $product_picture, $listingName, $description);
 
     if ($stmt->execute()) {
-        echo "Listing added successfully!";
+        header("Location: shopping.php");
+        exit();
     } else {
         echo "Error: " . $stmt->error;
     }
