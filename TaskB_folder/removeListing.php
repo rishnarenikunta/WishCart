@@ -4,7 +4,7 @@
 
     session_start();
 
-    $_SESSION['User_ID'] = 1;  // Simulating login session
+    $_SESSION['User_ID'] = 1;
     $userId = $_SESSION['User_ID'];
 
     $servername = "localhost";
