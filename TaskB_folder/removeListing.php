@@ -4,7 +4,10 @@
 
     session_start();
 
-    $_SESSION['User_ID'] = 1;
+    if (!isset($_SESSION['User_ID'])) {
+        die("Error: User not logged in.");
+    }
+
     $userId = $_SESSION['User_ID'];
 
     $servername = "localhost";
