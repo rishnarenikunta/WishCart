@@ -50,8 +50,16 @@
                 echo        '<span>$' . htmlspecialchars(number_format($row['Price'], 2)) . '</span>';
                 echo    '</div>';
                 echo    '<div class="productButtons">';
-                echo        '<button class="cartButton">Add to Cart</button>';
-                echo        '<button class="wishlistButton">Add to Wishlist</button>';
+                
+                echo        '<form action="addToCart.php" method="POST" style="display:inline;">';
+                echo            '<input type="hidden" name="listing_id" value="' . htmlspecialchars($row['Listing_ID']) . '">';
+                echo            '<button type="submit" class="cartButton">Add to Cart</button>';
+                echo        '</form>';
+
+                echo        '<form action="addToWishlist.php" method="POST" style="display:inline;">';
+                echo            '<input type="hidden" name="listing_id" value="' . htmlspecialchars($row['Listing_ID']) . '">';
+                echo            '<button type="submit" class="wishlistButton">Add to Wishlist</button>';
+                echo        '</form>';
                 echo    '</div>';
                 echo '</div>';
             }
