@@ -11,7 +11,7 @@
     <div class="containerSignUp">
         <div class="signUpBox">
             <h1>Sign Up</h1>
-            <form action ="signupsend.php" method ="post">
+            <form action ="signupsend.php" method ="post" onsubmit="return signup(event)">
                 <p>Username</p>
                 <input type="text" name="username" id="username" placeholder="Username" required>
                 <p>Email</p>
@@ -20,15 +20,12 @@
                 <input type="password" name="password" id="password" placeholder="Password" required>
                 <p>Reconfirm Password</p>
                 <input type="password" name="reconfirm-password" id="reconfirm-password" placeholder="Reconfirm Password" required> 
-                <button type="submit" onclick=signup() href="/account.html">Sign Up</button>
+                <button type="submit">Sign Up</button>
 
             </form>
 
             <script>
                 function signup() {
-    
-                    event.preventDefault();
-
                     var username = document.getElementById("username").value;
                     var password = document.getElementById("password").value;
                     var reconfirmPassword = document.getElementById("reconfirm-password").value;
@@ -55,12 +52,14 @@
                     else {
                         alert("Submitted successfully!");
                          document.querySelector("form").submit();
+                         return true;
                     }
+                    return false;
                 }
             </script>   
                      
             <div class="login">
-                Already have an account? <a href="/index.html">Login</a>
+                Already have an account? <a href="./index.html">Login</a>
             </div>
         </div>
     </div>
