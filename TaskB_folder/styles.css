@@ -71,13 +71,11 @@ body {
 }
 
 .loginBox button {
-    width: 30%;
+    width: auto;
     background-color: #560107;
-    margin-top: 70px;
     color: white;
-    padding: 20px;
-    padding-left: 35px;
-    padding-right: 35px;
+    height: 50px;
+    padding: 10px 30px;
     font-size: 20px;
     border: none;
     border-radius: 20px;
@@ -85,6 +83,10 @@ body {
     font-family: "Alegreya Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 .loginBox .signup {
@@ -135,14 +137,13 @@ body {
     outline: none;
 }
 
+
 .signUpBox button {
-    width: 30%;
+    width: auto;
     background-color: #560107;
-    margin-top: 40px;
     color: white;
-    padding: 20px;
-    padding-left: 35px;
-    padding-right: 35px;
+    height: 50px;
+    padding: 10px 30px;
     font-size: 20px;
     border: none;
     border-radius: 20px;
@@ -150,9 +151,11 @@ body {
     font-family: "Alegreya Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
+    margin: 0 auto;
+    display: block;
     margin-bottom: 30px;
+    margin-top: 30px;
 }
-
 .loginBox .signup {
     text-align: center;
     margin-top: 40px;
