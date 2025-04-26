@@ -12,9 +12,9 @@
     <nav class="navbar">
         <div class="navLinks">
             <a href="./shopping.php">Catalog</a>
-            <a href="./wishlist.html">Wishlist</a>
-            <a href="./manageListings.html">Manage Listings</a>
-            <a href="./order.html">Order</a>
+            <a href="./wishlist.php">Wishlist</a>
+            <a href="./manageListings.php">Manage Listings</a>
+            <a href="./order.php">Order</a>
         </div>
         <div class="profileDropdownWrapper">
             <span class="material-symbols-outlined profileIcon" onclick="toggleDropdown()">
@@ -42,7 +42,7 @@
         if ($result && $result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 echo '<div class="productCard">';
-                echo    '<a href="./product.html">';
+                echo    '<a href="./product.php?id=' . htmlspecialchars($row['Listing_ID']) . '">';
                 echo        '<img src="' . htmlspecialchars($row['Product_picture']) . '" alt="' . htmlspecialchars($row['Listing_Name']) . '" />';
                 echo    '</a>';
                 echo    '<div class="productInfo">';
@@ -55,7 +55,7 @@
                 echo            '<input type="hidden" name="listing_id" value="' . htmlspecialchars($row['Listing_ID']) . '">';
                 echo            '<button type="submit" class="cartButton">Add to Cart</button>';
                 echo        '</form>';
-
+        
                 echo        '<form action="addToWishlist.php" method="POST" style="display:inline;">';
                 echo            '<input type="hidden" name="listing_id" value="' . htmlspecialchars($row['Listing_ID']) . '">';
                 echo            '<button type="submit" class="wishlistButton">Add to Wishlist</button>';
