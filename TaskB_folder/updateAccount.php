@@ -4,11 +4,11 @@
 
     session_start();
 
-    if (!isset($_SESSION['User_ID'])) {
+    if (!isset($_SESSION['user_ID'])) {
         die("Error: User not logged in.");
     }
 
-    $userId = $_SESSION['User_ID'];
+    $userId = $_SESSION['user_ID'];
 
     $servername = "localhost";
     $usernameDB = "root";
@@ -26,7 +26,7 @@
         $email = $_POST['email'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        $sql = "UPDATE Users SET Username = ?, Email = ?, Password = ? WHERE User_ID = ?";
+        $sql = "UPDATE User SET Username = ?, Email = ?, Password = ? WHERE User_ID = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sssi", $username, $email, $password, $userId);
 

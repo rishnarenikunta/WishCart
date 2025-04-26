@@ -26,6 +26,24 @@
             </div>
         </div>
     </nav>
+
+    <?php
+        session_start();
+        $userId = $_SESSION['user_ID'];
+
+        $conn = new mysqli("localhost", "root", "", "WishCart");
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Example table structure: Orders(user_id, item_name, quantity, price)
+        $sql = "SELECT item_name, quantity, price FROM Orders WHERE user_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    ?>
+    
     <div class="orderDetailContainer">
         <button onclick="window.history.back()" class="closeButton">×</button>
         <h1 class="orderTitle">Order</h1>
@@ -35,19 +53,26 @@
                 <span>Amount</span>
                 <span>Price</span>
             </div>
+    
+            <?php
+            $total = 0;
+            while ($row = $result->fetch_assoc()):
+                $total += $row['Price'] * $row['Quantity'];
+            ?>
             <div class="orderItemRow">
-                <span>Bicycle</span>
-                <span>1</span>
-                <span>100.99</span>
+                <span><?= htmlspecialchars($row['Item_Name']) ?></span>
+                <span><?= $row['Quantity'] ?></span>
+                <span><?= number_format($row['Price'], 2) ?></span>
                 <button class="removeBtn" aria-label="Remove Item">×</button>
             </div>
+            <?php endwhile; ?>
         </div>
-
+    
         <hr class="divider" />
-
+    
         <div class="orderTotalRow">
             <span>Total</span>
-            <span>100.99</span>
+            <span><?= number_format($total, 2) ?></span>
             <button class="checkoutBtn">Checkout</button>
         </div>
     </div>

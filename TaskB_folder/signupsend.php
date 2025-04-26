@@ -22,6 +22,19 @@
     $stmt->bind_param("ssss", $username, $hashed_password, $email, $profile_picture);
 
     if ($stmt->execute()) {
+        $stmt->close(); 
+
+        session_start(); 
+        $sql = "SELECT User_ID from User where Username = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $username);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        $_SESSION['user_ID'] =  $row['User_ID']; 
+
         header("Location: ./account.html");
         exit();
     } else {
