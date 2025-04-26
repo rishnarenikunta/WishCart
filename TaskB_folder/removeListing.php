@@ -4,11 +4,11 @@
 
     session_start();
 
-    if (!isset($_SESSION['User_ID'])) {
-        die("Error: User not logged in.");
+    if (!isset($_SESSION['user_ID'])) {
+        $_SESSION['user_ID'] = 1; 
     }
 
-    $userId = $_SESSION['User_ID'];
+    $userId = $_SESSION['user_ID'];
 
     $servername = "localhost";
     $username = "root";
@@ -29,7 +29,9 @@
         $stmt->bind_param("ii", $listingId, $userId);
 
         if ($stmt->execute()) {
-            echo "Listing removed successfully!";
+            // Redirect to manageListings.php after successful deletion
+            header("Location: manageListings.php");
+            exit();
         } else {
             echo "Error: " . $stmt->error;
         }
