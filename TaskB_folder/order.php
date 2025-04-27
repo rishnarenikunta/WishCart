@@ -12,8 +12,8 @@
     <nav class="navbar">
         <div class="navLinks">
             <a href="./shopping.php">Catalog</a>
-            <a href="./wishlist.html">Wishlist</a>
-            <a href="./manageListings.html">Manage Listings</a>
+            <a href="./wishlist.php">Wishlist</a>
+            <a href="./manageListings.php">Manage Listings</a>
             <a href="./order.php">Order</a>
         </div>
         <div class="profileDropdownWrapper">

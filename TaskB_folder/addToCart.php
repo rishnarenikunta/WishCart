@@ -3,9 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
 
-$_SESSION['User_ID'] = 1;
-
-$userId = $_SESSION['User_ID'];
+$userId = $_SESSION['user_ID'];
 $listingId = $_POST['listing_id'];
 
 $conn = new mysqli('localhost', 'root', '', 'WishCart');

@@ -31,7 +31,7 @@
         $stmt->bind_param("sssi", $username, $email, $password, $userId);
 
         if ($stmt->execute()) {
-            echo "Account updated successfully!";
+             header("Location: shopping.php");
         } else {
             echo "Error: " . $stmt->error;
         }

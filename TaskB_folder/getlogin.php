@@ -1,64 +1,57 @@
 <?php
-    session_start();
+session_start();
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "WishCart";
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+// Connect to database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "WishCart";
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+$conn = new mysqli($servername, $username, $password, $dbname);
 
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-    $user = $_POST['username'];
-    $pass = $_POST['password'];
+$user = $_POST['username'];
+$pass = $_POST['password'];
 
+// Prepare statement to find the user
+$sql = "SELECT * FROM User WHERE Username = ?";
+$stmt = $conn->prepare($sql);
 
-    $sql = "SELECT * FROM User WHERE Username = ?";
-    $stmt = $conn->prepare($sql);
+if (!$stmt) {
+    die("Prepare failed: " . $conn->error);
+}
 
-    if (!$stmt) {
-        die("Prepare failed: " . $conn->error);
-    }
+$stmt->bind_param("s", $user);
+$stmt->execute();
+$result = $stmt->get_result();
 
-    $stmt->bind_param("s", $user);
-    $stmt->execute();
-    $result = $stmt->get_result();
+if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
 
-    if ($result->num_rows > 0 ) {
-        $row = $result->fetch_assoc();
-        if(password_verify($pass, $row['Password']))
-        {
-            $stmt->close(); 
+    // Verify password
+    if (password_verify($pass, $row['Password'])) {
+        $_SESSION['user_ID'] = $row['User_ID'];
 
-            $sql = "SELECT User_ID from User where Username = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("s", $user);
-
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $row = $result->fetch_assoc();
-        
-            $_SESSION['user_ID'] = $row['User_ID']; 
-            
-            if (!isset($_SESSION['user_ID'])) {
-                die("Error: User not logged in.");
-            }
-        
-            header("Location: account.html");
-            exit();
+        if (!isset($_SESSION['user_ID'])) {
+            die("Error: Session failed.");
         }
-        else   
-            echo "Error: Wrong Password";
+
+        header("Location: shopping.php");
+        exit();
     } else {
-        
-        echo "Error: " . $sql . "<br>" . $result->error;
+        echo "<script>alert('Invalid password. Please try again.'); window.location.href='index.html';</script>";
     }
+} else {
+    echo "<script>alert('Invalid username. Please try again.'); window.location.href='index.html';</script>";
+}
 
-    $stmt->close();
-    $conn->close();
-
+// Clean up
+$stmt->close();
+$conn->close();
 ?>

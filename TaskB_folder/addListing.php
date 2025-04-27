@@ -15,7 +15,7 @@
     $listingName = $_POST['listing_name'];
     $description = $_POST['listing_description'];
     $price = $_POST['price'];
-    $product_picture = "bike.jpg";
+    $product_picture = "default.jpg";
 
     $servername = "localhost";
     $username = "root";
