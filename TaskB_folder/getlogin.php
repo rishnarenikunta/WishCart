@@ -32,6 +32,7 @@ if ($result && $result->num_rows > 0) {
     exit();
 } else {
     echo "<script>alert('Invalid username or password'); window.location.href='index.html';</script>";
+    exit();
 }
 
 $stmt->close();
