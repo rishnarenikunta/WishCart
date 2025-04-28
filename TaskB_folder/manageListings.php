@@ -58,8 +58,12 @@
                 
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
+                        $imagePath = "Uploads/" . $row['Product_picture'];
+                        $imageSrc = file_exists($imagePath)
+                        ? "/wishcart/Uploads/" . htmlspecialchars($row['Product_picture'])
+                        : "/wishcart/Uploads/default.jpg";
                         echo '<div class="mngListingsCard">';
-                        echo '<img src="' . htmlspecialchars($row['Product_picture']) . '" alt="' . htmlspecialchars($row['Listing_Name']) . '" />';
+                        echo '<img src="' . $imageSrc . '" alt="' . htmlspecialchars($row['Listing_Name']) . '" onerror="this.src=\'/wishcart/Uploads/default.jpg\'" />';
                         echo '<div class="mngListingsInfo">';
                         echo '<span>' . htmlspecialchars($row['Listing_Name']) . '</span>';
                         echo '<span>$' . htmlspecialchars(number_format($row['Price'], 2)) . '</span>';

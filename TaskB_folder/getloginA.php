@@ -23,7 +23,7 @@ if ($result) {
         header("Location: shopping.php");
         exit();
     } else {
-        echo "<script>alert('Invalid username or password'); window.location.href='indexA.html';</script>";
+        echo "<script>alert('Invalid login. Please try again.'); window.location.href='indexA.html';</script>";
         exit();
     }
 } else {

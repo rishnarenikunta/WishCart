@@ -41,9 +41,13 @@
 
         if ($result && $result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
+                $imagePath = "Uploads/" . $row['Product_picture'];
+                $imageSrc = file_exists($imagePath)
+                    ? "/wishcart/Uploads/" . htmlspecialchars($row['Product_picture'])
+                    : "/wishcart/Uploads/default.jpg";
                 echo '<div class="productCard">';
                 echo    '<a href="./product.php?id=' . htmlspecialchars($row['Listing_ID']) . '">';
-                echo        '<img src="' . htmlspecialchars($row['Product_picture']) . '" alt="' . htmlspecialchars($row['Listing_Name']) . '" />';
+                echo '<img src="' . $imageSrc . '" alt="' . htmlspecialchars($row['Listing_Name']) . '" onerror="this.src=\'/wishcart/Uploads/default.jpg\'" />';
                 echo    '</a>';
                 echo    '<div class="productInfo">';
                 echo        '<span>' . htmlspecialchars($row['Listing_Name']) . '</span>';
