@@ -15,11 +15,9 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
     $sql = "INSERT INTO User (Username, Password, Email, Profile_picture) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $username, $hashed_password, $email, $profile_picture);
+    $stmt->bind_param("ssss", $username, $password, $email, $profile_picture);
 
     if ($stmt->execute()) {
         $stmt->close(); 
@@ -35,7 +33,7 @@
 
         $_SESSION['user_ID'] =  $row['User_ID']; 
 
-        header("Location: ./account.html");
+        header("Location: ./index.html");
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
