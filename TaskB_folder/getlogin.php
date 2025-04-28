@@ -31,7 +31,7 @@ if ($result && $result->num_rows > 0) {
     header("Location: shopping.php");
     exit();
 } else {
-    echo "<script>alert('Invalid username or password.'); window.location.href='index.html';</script>";
+    echo "<script>alert('Invalid username or password'); window.location.href='index.html';</script>";
 }
 
 $stmt->close();
