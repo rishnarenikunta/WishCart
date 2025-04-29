@@ -20,11 +20,11 @@
 
         $n_username = $_POST['n_username'];
         $n_password = $_POST['n_password'];
-        $sql = "UPDATE User SET Username = ?, `Password` = ? WHERE Username =? AND `Password` = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssss", $n_username, $n_password, $p_username, $p_password);
+        $sql = "UPDATE User SET Username = '$n_username', `Password` = '$n_password' WHERE Username = '$p_username' AND `Password` = '$p_password'";
 
-        if ($stmt->execute()) {
+        $stmt = $conn->query($sql);
+
+        if ($stmt) {
              header("Location: shopping.php");
         } else {
             echo "Error: " . $stmt->error;
