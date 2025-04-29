@@ -2,13 +2,6 @@
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
 
-    session_start();
-
-    if (!isset($_SESSION['user_ID'])) {
-        die("Error: User not logged in.");
-    }
-
-    $userId = $_SESSION['user_ID'];
 
     $servername = "localhost";
     $usernameDB = "root";
@@ -22,13 +15,14 @@
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $password =$_POST['password'];
+        $p_username = $_POST['p_username'];
+        $p_password = $_POST['p_password'];
 
-        $sql = "UPDATE User SET Username = ?, Email = ?, Password = ? WHERE User_ID = ?";
+        $n_username = $_POST['n_username'];
+        $n_password = $_POST['n_password'];
+        $sql = "UPDATE User SET Username = ?, `Password` = ? WHERE Username =? AND `Password` = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssi", $username, $email, $password, $userId);
+        $stmt->bind_param("sssi", $n_username, $n_password, $p_username, $p_password);
 
         if ($stmt->execute()) {
              header("Location: shopping.php");

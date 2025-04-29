@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Account Details</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navLinks">
+            <a href="./shopping.php">Catalog</a>
+            <a href="./wishlist.html">Wishlist</a>
+            <a href="./manageListings.html">Manage Listings</a>
+            <a href="./order.php">Order</a>
+        </div>
+        <div class="profileDropdownWrapper">
+            <span class="material-symbols-outlined profileIcon" onclick="toggleDropdown()">
+                account_circle
+            </span>
+            <div id="profileDropdown" class="dropdownMenu">
+                <a href="./account.html">View Account</a>
+                <a href="./index.html">Log Out</a>
+            </div>
+        </div>
+    </nav>
+    <div class="productDetailContainer">
+        <button onclick="window.history.back()" class="closeButton">×</button>
+        <h1 class="accountTitle">Account</h1>
+        <div class="accountLayout">
+            <div class="accountLeft">
+                <span class="material-symbols-outlined largeProfileIcon">
+                    account_circle
+                </span>
+            </div>
+            <div class="accountRight">
+                <form action="updateAccountB.php" method="POST">
+                    <p>Old Username</p>
+                    <input type="text" name="p_username" required />
+                    <p>Old Password</p>
+                    <input type="password" name="p_password" required />
+                    <p>New Username</p>
+                    <input type="text" name="n_username" required />
+                    <p>New Password</p>
+                    <input type="password" name="n_password" required />
+                    <button type="submit" class="saveButtonAccount">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById("profileDropdown");
+            dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
+        }
+    </script>
+</body>
+
+</html>
