@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Account Details</title>
@@ -26,16 +25,21 @@
             </div>
         </div>
     </nav>
+
     <div class="productDetailContainer">
         <button onclick="window.history.back()" class="closeButton">×</button>
         <h1 class="accountTitle">Account</h1>
+
         <div class="accountLayout">
             <div class="accountLeft">
                 <span class="material-symbols-outlined largeProfileIcon">
                     account_circle
                 </span>
             </div>
+
             <div class="accountRight">
+                <div id="errorMessage" style="color: red; margin-bottom: 10px;"></div>
+
                 <form action="updateAccount.php" method="POST">
                     <p>Username</p>
                     <input type="text" name="username" required />
@@ -48,12 +52,31 @@
             </div>
         </div>
     </div>
+
     <script>
         function toggleDropdown() {
             const dropdown = document.getElementById("profileDropdown");
             dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
         }
+
+        const params = new URLSearchParams(window.location.search);
+        const error = params.get("error");
+
+        if (error) {
+            const errorDiv = document.getElementById("errorMessage");
+            if (error === "email") {
+                errorDiv.textContent = "That email is already in use. Please try a different one.";
+            } else if (error === "username") {
+                errorDiv.textContent = "That username is already in use. Please try a different one.";
+            } else if (error === "duplicate") {
+                errorDiv.textContent = "A duplicate entry exists. Please use unique credentials.";
+            }
+        }
+
+        const newUrl = window.location.origin + window.location.pathname;
+        window.history.replaceState({}, document.title, newUrl);
+
+
     </script>
 </body>
-
 </html>

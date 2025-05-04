@@ -1,38 +1,42 @@
 <?php
-    session_start();
-    
-    if (!isset($_GET['id'])) {
-        header("Location: shopping.php");
-        exit();
-    }
-    
-    $listingId = $_GET['id'];
-    
-    $conn = new mysqli('localhost', 'root', '', 'WishCart');
-    
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    
-    // Get listing details including seller information
-    $sql = "SELECT l.*, u.Username as SellerName 
-            FROM Listing l
-            JOIN User u ON l.User_ID = u.User_ID
-            WHERE l.Listing_ID = ?";
-    
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $listingId);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    
-    if ($result->num_rows == 0) {
-        header("Location: shopping.php");
-        exit();
-    }
-    
-    $product = $result->fetch_assoc();
-    $stmt->close();
-    $conn->close();
+session_start();
+
+if (!isset($_GET['id'])) {
+    header("Location: shopping.php");
+    exit();
+}
+
+$listingId = $_GET['id'];
+
+$conn = new mysqli('localhost', 'root', '', 'WishCart');
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT l.*, u.Username as SellerName 
+        FROM Listing l
+        JOIN User u ON l.User_ID = u.User_ID
+        WHERE l.Listing_ID = ?";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $listingId);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows == 0) {
+    header("Location: shopping.php");
+    exit();
+}
+
+$product = $result->fetch_assoc();
+$stmt->close();
+$conn->close();
+
+$imagePath = "Uploads/" . $product['Product_picture'];
+$imageSrc = file_exists($imagePath)
+    ? "/wishcart/Uploads/" . htmlspecialchars($product['Product_picture'])
+    : "/wishcart/Uploads/default.jpg";
 ?>
 
 <!DOCTYPE html>
@@ -63,11 +67,16 @@
             </div>
         </div>
     </nav>
+
     <div class="productDetailContainer">
         <button onclick="window.history.back()" class="closeButton">×</button>
         <h1 class="productTitle"><?php echo htmlspecialchars($product['Listing_Name']); ?></h1>
         <div class="productContent">
-            <img src="<?php echo htmlspecialchars($product['Product_picture']); ?>" alt="<?php echo htmlspecialchars($product['Listing_Name']); ?>" class="productImage" />
+            <img src="<?php echo $imageSrc; ?>" 
+                 alt="<?php echo htmlspecialchars($product['Listing_Name']); ?>" 
+                 class="productImage"
+                 onerror="this.src='/wishcart/Uploads/default.jpg'" />
+
             <div class="productText">
                 <p class="description"><?php echo htmlspecialchars($product['Listing_Description']); ?></p>
                 <p class="price">Price: $<?php echo htmlspecialchars(number_format($product['Price'], 2)); ?></p>
@@ -86,6 +95,7 @@
             </div>
         </div>
     </div>
+
     <script>
         function toggleDropdown() {
             const dropdown = document.getElementById("profileDropdown");

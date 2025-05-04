@@ -33,6 +33,12 @@ body {
     margin-right: 30px;
 }
 
+.login {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
 .loginBox {
     background-color: white;
     padding: 30px;

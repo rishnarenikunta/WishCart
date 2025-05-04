@@ -11,7 +11,10 @@
     <div class="containerSignUp">
         <div class="signUpBox">
             <h1>Sign Up</h1>
-            <form action ="signupsend.php" method ="post" onsubmit="return signup(event)">
+
+            <p id="signupErrorMessage" style="color: red; margin-bottom: 0px;"></p>
+
+            <form action="signupsend.php" method="post" onsubmit="return signup(event)">
                 <p>Username</p>
                 <input type="text" name="username" id="username" placeholder="Username" required>
                 <p>Email</p>
@@ -21,51 +24,57 @@
                 <p>Reconfirm Password</p>
                 <input type="password" name="reconfirm-password" id="reconfirm-password" placeholder="Reconfirm Password" required> 
                 <button type="submit">Sign Up</button>
-
             </form>
 
-            <script>
-                function signup() {
-                    var username = document.getElementById("username").value;
-                    var password = document.getElementById("password").value;
-                    var reconfirmPassword = document.getElementById("reconfirm-password").value;
-                    var email = document.getElementById("email").value;
-                    var usernamePattern = /^[a-zA-Z]+$/;
-                    var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-                    var emailPattern = /^[A-Za-z0-9._]+@[A-Za-z]+\.[A-Za-z]{2,}$/;
-                    if (!usernamePattern.test(username)) {
-                        alert("First name  can only contain letters."); 
-                    }
-                    else if (!passwordPattern.test(password)) {
-                        alert("Password must be at least 8 characters long and contain at least one letter and one number.");
-                    }
-                    else if (password !== reconfirmPassword) {
-                        alert("Passwords do not match.");
-                    }
-                    else if (!emailPattern.test(email)) {
-                        alert("Email must be a valid email address.");
-                    }
-        
-                    else if (username === "" || password === "" || reconfirmPassword === "" || email === "") {
-                        alert("Please fill out all fields.");
-                    }
-                    else {
-                        alert("Submitted successfully!");
-                         document.querySelector("form").submit();
-                         return true;
-                    }
-                    return false;
-                }
-            </script>   
-                     
             <div class="login">
                 Already have an account? <a href="./index.html">Login</a>
             </div>
         </div>
     </div>
+
+    <script>
+        function signup(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value;
+            const reconfirmPassword = document.getElementById("reconfirm-password").value;
+            const email = document.getElementById("email").value.trim();
+
+            const usernamePattern = /^[a-zA-Z]+$/;
+            const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+            const emailPattern = /^[A-Za-z0-9._]+@[A-Za-z]+\.[A-Za-z]{2,}$/;
+
+            if (!usernamePattern.test(username)) {
+                alert("Username can only contain letters.");
+            } else if (!passwordPattern.test(password)) {
+                alert("Password must be at least 8 characters long and contain at least one letter and one number.");
+            } else if (password !== reconfirmPassword) {
+                alert("Passwords do not match.");
+            } else if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+            } else {
+                document.querySelector("form").submit();
+                return true;
+            }
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const error = params.get("error");
+        const errorDiv = document.getElementById("signupErrorMessage");
+
+        if (error) {
+            if (error === "email") {
+                errorDiv.textContent = "This email is already in use.";
+            } else if (error === "username") {
+                errorDiv.textContent = "This username is already in use.";
+            } else {
+                errorDiv.textContent = "An unexpected error occurred. Please try again.";
+            }
+
+            const cleanUrl = window.location.origin + window.location.pathname;
+            window.history.replaceState({}, document.title, cleanUrl);
+        }
+    </script>
 </body>
-
-
-
 </html>
-
